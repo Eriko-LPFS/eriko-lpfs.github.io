@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eriko L. Prates — Automação BIM & Engenharia</title>
+  <meta name="description" content="Eriko Prates — Engenharia, automação BIM (Revit API), programação em C#. Portfólio e projetos." />
+  <meta name="author" content="Eriko Luiz Prates" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <style>
+    :root{--bg:#0f1720;--card:#0b1220;--muted:#9aa4b2;--accent:#7dd3fc}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, Roboto, 'Segoe UI', Arial;background:linear-gradient(180deg,#071028 0%,var(--bg) 100%);color:#e6eef6;line-height:1.4}
+    .wrap{max-width:980px;margin:40px auto;padding:28px}
+    header{display:flex;align-items:center;gap:18px}
+    .avatar{width:86px;height:86px;border-radius:14px;background:linear-gradient(135deg,#1f2937,#0b1220);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);font-size:26px}
+    h1{margin:0;font-size:22px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:22px;margin-top:26px}
+    .card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+
+    .projects{display:grid;gap:18px;margin-top:10px}
+
+    /* Novo estilo de card de vídeo */
+    .video-card{
+      background:#0c1424;
+      border-radius:14px;
+      padding:14px;
+      box-shadow:0 4px 14px rgba(0,0,0,0.25);
+      transition:transform .2s, box-shadow .2s;
+    }
+    .video-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 8px 20px rgba(0,0,0,0.35);
+    }
+    .video-frame{
+      position:relative;
+      padding-bottom:56.25%;
+      height:0;
+      border-radius:10px;
+      overflow:hidden;
+      margin-bottom:10px;
+    }
+    .video-frame iframe{
+      position:absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+    }
+    .video-title{
+      font-weight:600;
+      margin:0 0 4px 0;
+    }
+    .video-desc{
+      color:var(--muted);
+      font-size:14px;
+      margin:0;
+    }
+
+    .meta{margin-top:12px;font-size:13px;color:var(--muted)}
+
+    aside .section-title{font-weight:600;margin-bottom:8px}
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{background:#051427;padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+    .links{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+    a.btn{display:inline-block;padding:10px 12px;border-radius:10px;text-decoration:none;color:#061826;background:var(--accent);font-weight:600}
+
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+
+    @media (max-width:900px){.grid{grid-template-columns:1fr;}.avatar{width:72px;height:72px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="avatar">EL</div>
+      <div>
+        <h1>Eriko Luiz Prates</h1>
+        <p class="lead">Engenheiro em formação • Automação BIM (Revit API) • C# • Ferramentas que economizam tempo de projeto</p>
+      </div>
+    </header>
+
+    <main class="grid">
+
+      <!-- Left column: projetos -->
+      <section>
+        <div class="card">
+          <h2 style="margin-top:0">Sobre</h2>
+          <p style="color:var(--muted)">Sou estudante de Engenharia com interesse em automação BIM e programação para Revit. Gosto de resolver problemas que "doem" no dia a dia do projeto: tarefas repetitivas, checagens, e otimização de fluxo de trabalho.</p>
+          <div class="meta">Disponível para freelas, consultorias e aberto a propostas</div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h2 style="margin-top:0">Projetos selecionados</h2>
+          <div class="projects">
+
+            <!-- NOVO CARD DE VÍDEO 1 -->
+            <div class="video-card">
+              <div class="video-frame">
+                <iframe src="https://youtu.be/nlZhtNaty4s?si=L4VJN0C0DPL0WYym" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <p class="video-title">Automações Revit</p>
+              <p class="video-desc">Ferramentas internas integradas ao Revit que automatizam rotinas e economizam tempo no projeto elétrico.</p>
+            </div>
+
+            <!-- NOVO CARD DE VÍDEO 2 (exemplo) -->
+            <div class="video-card">
+              <div class="video-frame">
+                <iframe src="https://youtu.be/HSGKsigjkHc?si=qmbXCwQy4JiXGYV-" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <p class="video-title">Automações Web</p>
+              <p class="video-desc">Bots e ferramentas que executam tarefas repetitivas em sites — como downloads automáticos e navegação robótica.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Right column: skills & links -->
+      <aside>
+        <div class="card">
+          <div class="section-title">Skills</div>
+          <div class="skills">
+            <span class="skill">Revit API</span>
+            <span class="skill">BIM</span>
+            <span class="skill">Automação</span>
+          </div>
+
+          <div class="section-title" style="margin-top:14px">Links rápidos</div>
+          <div class="links">
+            <a class="btn" href="https://github.com/Eriko-LPFS" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="https://www.instagram.com/eriko.lp/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <div class="section-title">Resumo rápido</div>
+          <p style="color:var(--muted);margin:0">Engenharia • Automação BIM • Ferramentas que trazem impacto mensurável em produtividade de projeto.</p>
+        </div>
+      </aside>
+
+    </main>
+
+    <footer>
+      <div>Feito por Eriko • <a href="https://github.com/seu-usuario" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">GitHub</a></div>
+      <div style="margin-top:6px;color:var(--muted)">2025</div>
+    </footer>
+  </div>
+</body>
+</html>
