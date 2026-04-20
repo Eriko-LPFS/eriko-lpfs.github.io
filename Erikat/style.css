@@ -1,89 +1,207 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erikat - Macros & Plugins para Autodesk</title>
-    <meta name="referrer" content="no-referrer">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <header class="hero">
-        <div class="container">
-            <h1>Pare de perder horas com tarefas repetitivas no AutoCAD</h1>
-            <p>Economize até 80% do seu tempo de detalhamento com as automações do Erikat.</p>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/EyzATychABo?si=PqIyCppQXvu6DnpE" allowfullscreen></iframe>
-            </div>
-        </div>
-    </header>
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f7f6;
+}
 
-    <section class="features">
-        <div class="container">
-            <h2>Por que usar o Erikat Macros?</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>🚀 Velocidade</h3>
-                    <p>Comandos como CleanBoard e ResetColors executam em segundos o que você levaria minutos.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🛡️ Segurança</h3>
-                    <p>Scripts rodados diretamente no nosso servidor privado. Sua ferramenta segura e sem downloads constantes.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>💻 Flexibilidade</h3>
-                    <p>Escolha entre usar em qualquer máquina via e-mail ou travar em uma máquina específica.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-    <section class="about">
-        <div class="container">
-            <div class="about-content">
-                <h2>Afinal, quem é o Erikat?</h2>
-                <p>Olá, eu sou o <strong>Eriko</strong>. Como desenvolvedor especializado em ecossistema Autodesk, minha missão é criar pontes entre a engenharia e a tecnologia. Desenvolvo plugins personalizados que transformam o fluxo de trabalho de escritórios, eliminando o erro humano e maximizando a produtividade.</p>
-            </div>
-        </div>
-    </section>
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
 
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <h2>Ficou interessado? Escolha seu plano:</h2>
-            <div class="price-grid">
-                <div class="price-card">
-                    <h3>Plano Desktop</h3>
-                    <div class="price">R$ 49,90<span>/mês</span></div>
-                    <ul>
-                        <li>Acesso Total aos Macros</li>
-                        <li>Vinculado ao ID da Máquina</li>
-                    </ul>
-                    <a href="https://pag.ae/81HAvCAHJ/button" rel="noopener noreferrer" target="_blank" class="btn-buy">Contratar Plano Desktop</a>
-                </div>
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
 
-                <div class="price-card featured">
-                    <div class="badge">Mais Vendido</div>
-                    <h3>Plano Global</h3>
-                    <div class="price">R$ 59,90<span>/mês</span></div>
-                    <ul>
-                        <li>Acesso em Qualquer Máquina</li>
-                        <li>Login via E-mail</li>
-                        <li>Atualizações Prioritárias</li>
-                    </ul>
-                    <a href="https://pag.ae/81HAzd-m3/button" rel="noopener noreferrer" target="_blank" class="btn-buy">Contratar Plano Global</a>
-                </div>
-            </div>
-        </div>
-    </section>
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
 
-    <footer>
-        <p>&copy; 2026 Erikat - Macros & Plugins para Autodesk. Todos os direitos reservados.</p>
-        <a href="https://pag.ae/81HANytsK" class="secret-test-btn" target="_blank" rel="noopener noreferrer">
-        <img src="contents/logo E.png" alt="Teste">
-        </a>
-    </footer>
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
 
-</body>
-</html>
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Features */
+.features {
+    padding: 60px 0;
+    background: white;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.feature-card {
+    padding: 30px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+/* About */
+.about {
+    padding: 60px 0;
+    background: #f8fafc;
+}
+
+/* Pricing */
+.pricing {
+    padding: 80px 0;
+}
+
+.pricing h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.price-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.price-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    width: 350px;
+    text-align: center;
+    position: relative;
+}
+
+.price-card.featured {
+    border: 2px solid #3b82f6;
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+}
+
+.badge {
+    background: #3b82f6;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.price span {
+    font-size: 1rem;
+    color: #64748b;
+}
+
+.price-card ul {
+    list-style: none;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.price-card li {
+    margin-bottom: 10px;
+}
+
+.price-card li::before {
+    content: "✓";
+    color: #10b981;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.btn-buy {
+    display: block;
+    background: #1e293b;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-buy:hover {
+    background: #3b82f6;
+}
+
+.secret-test-btn {
+    position: fixed;
+    bottom: 20px;   /* Distância do fundo */
+    right: 20px;    /* Distância da direita */
+    z-index: 9999;  /* Garante que fique por cima de tudo */
+    opacity: 0.3;   /* Fica bem clarinho/discreto */
+    transition: opacity 0.3s;
+    border-radius: 50%;    /* Deixa a logo redonda */
+}
+
+.secret-test-btn:hover {
+    opacity: 1;     /* Ganha cor ao passar o mouse */
+}
+
+.secret-test-btn img {
+    width: 30px;    /* Tamanho pequeno da logo */
+    height: auto;
+    display: block;
+    border-radius: 50%;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    color: #64748b;
+    font-size: 0.9rem;
+}
