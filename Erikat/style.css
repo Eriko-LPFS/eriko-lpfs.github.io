@@ -178,6 +178,27 @@ body {
     background: #3b82f6;
 }
 
+.secret-test-btn {
+    position: fixed;
+    bottom: 20px;   /* Distância do fundo */
+    right: 20px;    /* Distância da direita */
+    z-index: 9999;  /* Garante que fique por cima de tudo */
+    opacity: 0.3;   /* Fica bem clarinho/discreto */
+    transition: opacity 0.3s;
+    border-radius: 50%;    /* Deixa a logo redonda */
+}
+
+.secret-test-btn:hover {
+    opacity: 1;     /* Ganha cor ao passar o mouse */
+}
+
+.secret-test-btn img {
+    width: 30px;    /* Tamanho pequeno da logo */
+    height: auto;
+    display: block;
+    border-radius: 50%;
+}
+
 footer {
     text-align: center;
     padding: 40px 0;
