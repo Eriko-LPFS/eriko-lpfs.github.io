@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erikat Macro</title>
+    <link rel="icon" href="contents/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+   
+    <style>
+        :root {
+            --bg-dark: #0a0a0c;
+            --bg-card: #121318;
+            --text-main: #ffffff;
+            --text-muted: #a1a1aa;
+            --deep-sea: #0A2540;
+            --deep-sea-light: #004b82;
+            --mustard: #D4AF37;
+            --mustard-hover: #e8b63a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Top Badge */
+        .internal-badge {
+            background: var(--bg-card);
+            text-align: center;
+            padding: 10px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-bottom: 1px solid #333;
+            letter-spacing: 0.5px;
+        }
+
+        .internal-badge span {
+            background: var(--mustard);
+            color: var(--bg-dark);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-weight: 800;
+            margin-right: 8px;
+            text-transform: uppercase;
+        }
+
+        /* Header / Hero */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 80px 0 60px;
+            position: relative;
+            background: radial-gradient(circle at 50% 0%, var(--deep-sea) 0%, var(--bg-dark) 70%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--mustard);
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: var(--mustard);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #d1d5db;
+            max-width: 650px;
+            margin: 0 auto 40px;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+            border: 2px solid var(--deep-sea-light);
+            box-shadow: 0 20px 40px rgba(10, 37, 64, 0.5);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-main);
+        }
+
+        /* Features */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid #2a2a2a;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--deep-sea-light);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--deep-sea-light);
+            box-shadow: 0 15px 35px rgba(10, 37, 64, 0.4);
+        }
+
+        .feature-card:hover::before {
+            background: var(--mustard);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* About */
+        .about {
+            background: var(--bg-card);
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+
+        .about-content {
+            max-width: 750px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .about-content strong {
+            color: var(--mustard);
+        }
+
+        /* Seção de Vendas */
+        .pricing-section {
+            background: var(--bg-dark);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .pricing-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, var(--deep-sea) 0%, var(--bg-card) 100%);
+            border-radius: 28px;
+            padding: 50px 40px;
+            border: 1px solid var(--deep-sea-light);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--mustard);
+            color: var(--bg-dark);
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .pricing-card h3 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .price {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--mustard);
+            margin: 20px 0;
+            line-height: 1;
+        }
+
+        .pricing-card .price span {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .pricing-list {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .pricing-list li {
+            margin-bottom: 14px;
+            font-size: 1rem;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-list li::before {
+            content: "✓";
+            color: var(--mustard);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .btn-buy {
+            display: inline-block;
+            width: 100%;
+            background: var(--mustard);
+            color: var(--bg-dark);
+            text-decoration: none;
+            padding: 16px 30px;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-buy:hover {
+            background: var(--mustard-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .safe-checkout {
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            background: #050505;
+            color: #666;
+            font-size: 0.8rem;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            .pricing-card .price {
+                font-size: 3rem;
+            }
+            .pricing-card {
+                padding: 40px 24px;
+            }
+            .feature-card {
+                padding: 24px;
+            }
+            section {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="internal-badge">
+        <span>⚡ NOVO</span> Versão 1.0.0 disponível com automação avançada
+    </div>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Erikat <span>Macro</span></h1>
+            <div class="tagline">Otimização Extrema para AutoCAD</div>
+            <p>A ferramenta definitiva para limpar, padronizar e exportar seus projetos em segundos. Esqueça o trabalho repetitivo e foque no que importa.</p>
+            <div class="video-container">
+                <video id="mainVideo" controls preload="metadata" controlsList="nodownload" disablePictureInPicture>
+                    <source src="" type="video/mp4">
+                    Seu navegador não suporta vídeos.
+                </video>
+            </div>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2>🎯 O que o Erikat faz</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🚀 CleanBoard</h3>
+                    <p>Limpa layers, blocks e estilos não utilizados em segundos. O que levaria minutos manualmente é resolvido com um clique.</p>
+                </div>
+                 <div class="feature-card">
+                    <h3>🎨 MuggingDetails</h3>
+                    <p>Otimiza os detalhes do desenho com um clique. Elimina erros de formatação e melhora a qualidade visual dos seus projetos.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎨 ResetColors</h3>
+                    <p>Padroniza as cores do desenho instantaneamente. Nunca mais entregue um projeto com visual bagunçado.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>Por que desenvolvi isso?</h2>
+                <p>Olá, projetistas! Sou o <strong>Eriko</strong>. Criei esses macros porque estava exausto de perder horas com tarefas braçais e repetitivas no AutoCAD. Utilizei meu conhecimento no ecossistema Autodesk para automatizar os gargalos do dia a dia. O resultado é uma ferramenta sólida que transforma horas de formatação em processos de segundos. ✨</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE VENDAS -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-card">
+                <div class="pricing-badge">🎯 OFERTA ESPECIAL</div>
+                <h3>Pacote Global</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">Acesso a todos os macros e atualizações futuras.</p>
+                
+                <div class="price">R$ <span>99,90/mês</span></div>
+                
+                <ul class="pricing-list">
+                    <li>Receba o Instalador Windows (.exe) no seu e-mail de compra</li>
+                    <li>Cadastro automático da licença no servidor </li>
+                    <li>Suporte direto via e-mail</li>
+                </ul>
+
+                <!-- 🔴 SUBSTITUA O '#' PELO SEU LINK DE CHECKOUT DO PAGBANK 🔴 -->
+                <a href="https://pag.ae/81Ks4qNKt/button" class="btn-buy">Garantir minha licença →</a>
+                <div class="safe-checkout">
+                    🔒 Pagamento 100% seguro via PagBank | Pix ou Cartão
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Erikat Macros & Plugins © 2026 • Desenvolvido por Eriko</p>
+    </footer>
+
+    <script type="module">
+        // 🔥 CONFIGURAÇÃO DO FIREBASE
+        // COLE AQUI SUAS CREDENCIAIS DO SEU PROJETO FIREBASE
+        const firebaseConfig = {
+            apiKey: "AIzaSyDcFJePRBsHuL98-WnG2SC3oN0Na1xtXmI",
+            authDomain: "integration-2ef6e.firebaseapp.com",
+            projectId: "integration-2ef6e",
+            storageBucket: "integration-2ef6e.firebasestorage.app",
+            appId: "1:23484347764:web:8da0133c98c6a673272821"
+        };
+
+        // Nome do arquivo no Firebase Storage (ex: "videos/demo-erikat.mp4")
+        const VIDEO_PATH = "videos/Erikat.mp4";
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
+
+        const app = initializeApp(firebaseConfig);
+        const storage = getStorage(app);
+        const videoRef = ref(storage, VIDEO_PATH);
+        const video = document.getElementById('mainVideo');
+
+        async function loadVideo() {
+            try {
+                const url = await getDownloadURL(videoRef);
+                video.querySelector('source').src = url;
+                video.load();
+            } catch (error) {
+                console.error("Erro ao carregar vídeo:", error);
+                // Fallback amigável
+                video.parentElement.innerHTML = `
+                    <div style="background: var(--bg-card); padding: 50px 20px; text-align: center; border-radius: 16px; border: 1px solid #333;">
+                        <p style="color: var(--mustard); font-weight: bold; margin-bottom: 10px;">🎬 Vídeo demonstrativo</p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Baixe o instalador e veja a magia acontecendo! ⚡</p>
+                    </div>
+                `;
+            }
+        }
+
+        loadVideo();
+    </script>
+</body>
+</html>
