@@ -173,7 +173,7 @@
                 Entrar com Microsoft
             </button>
             
-            <p id="error-msg" class="error-msg">❌ Acesso permitido apenas para e-mails @vieirajr.com.br</p>
+            <p id="error-msg" class="error-msg">❌ Acesso permitido apenas para e-mails corporativos autorizados.</p>
         </div>
     </div>
 
@@ -213,7 +213,7 @@
                     <a href="contents/Erikat.exe" class="btn">
                         ⬇️ Fazer download do instalador
                     </a>
-                    <p style="margin-top: 12px; color: #94a3b8; font-size: 0.7rem;">Versão 2.1.0 • Atualizado em março/2026</p>
+                    <p style="margin-top: 12px; color: #94a3b8; font-size: 0.7rem;">Versão 2.1.0 • Atualizado em maio/2026</p>
                 </div>
             </div>
 
@@ -288,8 +288,20 @@
         
         firebase.initializeApp(firebaseConfig);
         const provider = new firebase.auth.OAuthProvider('microsoft.com');
-
+        const dominiosPermitidos = ['@vieirajr.com.br', '@vieirasantos.com'];
         const VIDEO_PATH = "videos/VieiraJr.mp4";
+
+        // 1. Persistência de Login (Verifica se já está logado ao carregar a página)
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                const email = user.email.toLowerCase();
+                if (dominiosPermitidos.some(dominio => email.endsWith(dominio))) {
+                    exibirConteudo();
+                } else {
+                    firebase.auth().signOut();
+                }
+            }
+        });
 
         async function loadVideoFromStorage() {
             const videoElement = document.getElementById('mainVideo');
@@ -304,21 +316,25 @@
                 console.error("Erro ao carregar vídeo:", error);
                 document.getElementById('video-wrapper').innerHTML = `
                     <div style="background:#fef2f2; padding:30px; text-align:center; border-radius:12px;">
-                        <p style="color:#dc2626; font-weight:500; margin:0;">▶️ Vídeo demonstrativo</p>
-                        <p style="color:#6b7280; font-size:0.8rem; margin-top:5px;">Assista ao tutorial após baixar o instalador</p>
+                        <p style="color:#dc2626; font-weight:500; margin:0;">▶️ Vídeo demonstrativo indisponível</p>
+                        <p style="color:#6b7280; font-size:0.8rem; margin-top:5px;">O tutorial poderá ser visualizado em breve.</p>
                     </div>
                 `;
             }
         }
-        const dominiosPermitidos = ['@vieirajr.com.br', '@vieirasantos.com'];
+
+        function exibirConteudo() {
+            document.getElementById('login-overlay').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            loadVideoFromStorage();
+        }
+
         function loginMicrosoft() {
             firebase.auth().signInWithPopup(provider)
                 .then((result) => {
                     const email = result.user.email.toLowerCase();
                     if (dominiosPermitidos.some(dominio => email.endsWith(dominio))) {
-                        document.getElementById('login-overlay').style.display = 'none';
-                        document.getElementById('main-content').style.display = 'block';
-                        loadVideoFromStorage();
+                        exibirConteudo();
                     } else {
                         firebase.auth().signOut();
                         document.getElementById('error-msg').style.display = 'block';
