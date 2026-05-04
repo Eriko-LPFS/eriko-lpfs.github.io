@@ -310,12 +310,12 @@
                 `;
             }
         }
-
+        const dominiosPermitidos = ['@vieirajr.com.br', '@vieirasantos.com'];
         function loginMicrosoft() {
             firebase.auth().signInWithPopup(provider)
                 .then((result) => {
                     const email = result.user.email.toLowerCase();
-                    if (email.endsWith('@vieirajr.com.br')) {
+                    if (dominiosPermitidos.some(dominio => email.endsWith(dominio))) {
                         document.getElementById('login-overlay').style.display = 'none';
                         document.getElementById('main-content').style.display = 'block';
                         loadVideoFromStorage();
